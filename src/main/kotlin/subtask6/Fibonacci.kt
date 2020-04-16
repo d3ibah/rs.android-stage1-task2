@@ -2,8 +2,21 @@ package subtask6
 
 class Fibonacci {
 
-    // TODO: Complete the following function
     fun productFibonacciSequenceFor(n: Int): IntArray {
-        throw NotImplementedError("Not implemented")
+        var startNumber = 0
+        var nextNumber = 1
+        var fibNumber = 1
+
+        while (startNumber * nextNumber < n) {
+            fibNumber = startNumber + nextNumber
+            startNumber = nextNumber
+            nextNumber = fibNumber
+        }
+
+        return if (startNumber * nextNumber == n) {
+            intArrayOf(startNumber, nextNumber, 1)
+        } else {
+            intArrayOf(startNumber, nextNumber, 0)
+        }
     }
 }
